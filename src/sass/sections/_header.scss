@@ -1,0 +1,43 @@
+.top-header {
+    display: flex;
+    align-items: flex-end;
+    min-height: 76px;
+    padding-bottom: 17px;
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.75);
+    background: url("../../img/header.png") no-repeat center center;
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+
+    .container-header {
+        max-width: 85vw;
+        padding: 0;
+
+        .logo {
+            max-width: 140px;
+            max-height: 20px;
+        }
+
+        .timer {
+            @include text($main-font, 12px, 400, $main-color);
+
+            opacity: 0.75;
+        }
+    }
+}
+
+/* Media queries */
+@media(max-width: 767px) {
+    .top-header {
+        padding-top: 10%;
+
+        .container-header {
+            text-align: center;
+
+            .logo {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
