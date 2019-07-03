@@ -43,7 +43,9 @@ gulp.task('sass', () => {
 
 gulp.task('js', () => {
     gulp.src(config.paths.src.js)
-        .pipe(babel({ presets: ['env'] }))
+        .pipe(babel({
+            presets: ['env']
+        }))
         .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(gulp.dest(config.paths.dist.js));
@@ -66,7 +68,7 @@ gulp.task('clean', () => {
 });
 
 gulp.task('build', ['clean'], function () {
-   gulp.start('sass', 'js', 'static');
+    gulp.start('sass', 'js', 'static');
 });
 
 gulp.task('server', () => {
@@ -78,6 +80,7 @@ gulp.task('server', () => {
 
 gulp.task('watch', ['default'], function () {
     gulp.watch('src/sass/app.scss', ['sass']);
+    gulp.watch('src/sass/sections/*.scss', ['sass']);
     gulp.watch('src/js/**/*.js', ['js']);
     gulp.watch('src/*.html', ['static']);
     gulp.start('server');
