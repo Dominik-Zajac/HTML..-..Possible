@@ -3,18 +3,20 @@
 
     &-container {
         display: flex;
-        justify-content: center;
-        max-width: 85vw;
+        justify-content: flex-start;
+        max-width: 760px;
+        margin-top: 10px;
+        margin-bottom: 6px;
 
         .navbar-list {
             display: flex;
             justify-content: space-between;
-            margin-top: 11px;
-            padding-left: 2px;
+            padding: 0;
+            margin: 0;
+            width: 100%;
 
             .navbar-item {
                 @include size(142px, 33px);
-                @include spacing(0 6vw 0 0, 0);
 
                 list-style: none;
 
@@ -52,4 +54,28 @@
 //Disable hambuger menu
 .hamburger-menu {
     display: none;
+}
+
+.main-wrapper {
+    // display: flex;
+    // justify-content: center;
+    height: 50vh;
+
+
+    .main-container {
+        max-width: 760px;
+    }
+
+    .main-content {
+        min-width: 515px;
+        height: 50vh;
+        background-color: red;
+    }
+
+    .main-sidebar {
+        display: flex;
+        // max-width: calc(760px - 515px);
+        height: 50vh;
+        background-color: green;
+    }
 }
