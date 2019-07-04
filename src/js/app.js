@@ -8,6 +8,7 @@ const months = ["January", "February", "March", "April", "May",
 
 boxTime.innerHTML = `${day}${data.getDay()} ${months[data.getMonth()]} ${data.getFullYear()}`;
 
+
 /* Hamburger menu */
 
 //Disable menu after click on <a>
