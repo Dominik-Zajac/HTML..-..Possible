@@ -1,0 +1,55 @@
+.navigation {
+    background-color: inherit;
+
+    &-container {
+        display: flex;
+        justify-content: center;
+        max-width: 85vw;
+
+        .navbar-list {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 11px;
+            padding-left: 2px;
+
+            .navbar-item {
+                @include size(142px, 33px);
+                @include spacing(0 6vw 0 0, 0);
+
+                list-style: none;
+
+                &:hover {
+                    background-color: $second-color;
+
+                    &>.navbar-link {
+                        color: $additional-color;
+                        text-shadow: 0 0 4px rgba(29, 158, 217, 0.75);
+                        -moz-text-shadow: 0 0 4px rgba(29, 158, 217, 0.75);
+                        -o-text-shadow: 0 0 4px rgba(29, 158, 217, 0.75);
+                        -webkit-text-shadow: 0 0 4px rgba(29, 158, 217, 0.75);
+                    }
+                }
+
+                .navbar-link {
+                    @include text($main-font, 13px, 400, $main-color);
+                    @include size(142px, 33px);
+
+                    display: inline-block;
+                    text-align: center;
+                    padding: 8px 10px;
+                    outline: none;
+                    text-decoration: none;
+                    text-transform: uppercase;
+
+                    &:hover {}
+
+                }
+            }
+        }
+    }
+}
+
+//Disable hambuger menu
+.hamburger-menu {
+    display: none;
+}
