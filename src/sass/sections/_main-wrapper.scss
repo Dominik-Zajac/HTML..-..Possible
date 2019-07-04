@@ -1,0 +1,23 @@
+.main-wrapper {
+    // display: flex;
+    // justify-content: center;
+    height: 50vh;
+
+
+    .main-container {
+        max-width: 760px;
+    }
+
+    .main-content {
+        min-width: 515px;
+        height: 50vh;
+        background-color: red;
+    }
+
+    .main-sidebar {
+        display: flex;
+        // max-width: calc(760px - 515px);
+        height: 50vh;
+        background-color: green;
+    }
+}

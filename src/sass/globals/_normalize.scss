@@ -370,10 +370,9 @@ template {
   display: none;
 }
 
-.container {
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-}
+/**
+ * Bootstrap
+ */
 
 .row {
   margin-right: 0 !important;
@@ -449,7 +448,8 @@ template {
 .col-xl-7,
 .col-xl-8,
 .col-xl-9,
-.col-xl-auto {
+.col-xl-auto,
+.container {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }

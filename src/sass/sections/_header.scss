@@ -19,7 +19,7 @@
             max-height: 20px;
         }
 
-        .timer {
+        .date {
             @include text($main-font, 12px, 400, $main-color);
 
             opacity: 0.75;
