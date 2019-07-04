@@ -7,3 +7,19 @@ const months = ["January", "February", "March", "April", "May",
 ];
 
 boxTime.innerHTML = `${day}${data.getDay()} ${months[data.getMonth()]} ${data.getFullYear()}`;
+
+/* Hamburger menu */
+
+//Disable menu after click on <a>
+document.querySelector('.toggle-menu a').addEventListener('click', () => {
+    document.querySelector('.toggle').classList.toggle('toggle-active');
+    document.querySelector('.navicon').classList.toggle('navicon-active');
+});
+
+//Active/disable hamburger menu
+document.querySelector('.navicon').addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector('.navicon').classList.toggle('navicon-active');
+
+    document.querySelector('.toggle').classList.toggle('toggle-active');
+});
