@@ -113,10 +113,10 @@
             .disable-js {
 
                 .images-container {
-                    animation: sliding #{$tot}s infinite;
+                    animation: sliding #{$resultData}s infinite;
 
                     .image-box {
-                        @include posElement();
+                        @include element();
                     }
 
                     .title-image {

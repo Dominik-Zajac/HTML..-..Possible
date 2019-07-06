@@ -1,18 +1,19 @@
+/* Disable JS - slider */
 $slides: 10;
 $time: 4;
 $trans: 1;
-$tot: ($time + $trans) * $slides;
+$resultData: ($time + $trans) * $slides;
 
 @keyframes sliding {
     @for $i from 0 through $slides - 1 {
-        $t: ($time + $trans) * $i;
-        $n: $t + $time;
+        $timer: ($time + $trans) * $i;
+        $next: $timer + $time;
 
-        #{($t / $tot) * 100}% {
+        #{($timer / $resultData) * 100}% {
             transform: translateX($i * -100%);
         }
 
-        #{($n / $tot) * 100}% {
+        #{($next / $resultData) * 100}% {
             transform: translateX($i * -100%);
         }
     }
@@ -22,7 +23,7 @@ $tot: ($time + $trans) * $slides;
     }
 }
 
-@keyframes firstjump {
+@keyframes firstchange {
     0% {
         left: 0%;
     }
@@ -40,11 +41,11 @@ $tot: ($time + $trans) * $slides;
     }
 }
 
-@mixin posElement() {
+@mixin element() {
     &:first-child {
         left: 0;
         z-index: 0;
-        animation: firstjump #{$tot}s infinite;
+        animation: firstchange #{$resultData}s infinite;
     }
 
     @for $i from 1 through $slides - 1 {
