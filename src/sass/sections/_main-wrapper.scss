@@ -132,6 +132,8 @@
     }
 }
 
+/* Media queries */
+// Mobile
 @media (max-width: 767px) {
     .main-wrapper {
 
@@ -199,6 +201,7 @@
     }
 }
 
+// Tablet
 @media (min-width: 768px) and (max-width: 1024px) {
     .main-wrapper {
 
