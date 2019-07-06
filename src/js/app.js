@@ -24,3 +24,8 @@ document.querySelector('.navicon').addEventListener('click', e => {
 
     document.querySelector('.toggle').classList.toggle('toggle-active');
 });
+
+/* Disable auto slider */
+// window.addEventListener('load', () => {
+//     document.querySelector('.disable-js').classList.remove('disable-js');
+// });

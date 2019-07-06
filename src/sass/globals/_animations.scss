@@ -1,0 +1,56 @@
+$slides: 10;
+$time: 4;
+$trans: 1;
+$tot: ($time + $trans) * $slides;
+
+@keyframes sliding {
+    @for $i from 0 through $slides - 1 {
+        $t: ($time + $trans) * $i;
+        $n: $t + $time;
+
+        #{($t / $tot) * 100}% {
+            transform: translateX($i * -100%);
+        }
+
+        #{($n / $tot) * 100}% {
+            transform: translateX($i * -100%);
+        }
+    }
+
+    100% {
+        transform: translateX($slides * -100%);
+    }
+}
+
+@keyframes firstjump {
+    0% {
+        left: 0%;
+    }
+
+    50% {
+        left: 0%;
+    }
+
+    51% {
+        left: $slides * 100%;
+    }
+
+    100% {
+        left: $slides * 100%;
+    }
+}
+
+@mixin posElement() {
+    &:first-child {
+        left: 0;
+        z-index: 0;
+        animation: firstjump #{$tot}s infinite;
+    }
+
+    @for $i from 1 through $slides - 1 {
+        &:nth-child(#{$i + 1}) {
+            left: $i * 100%;
+            z-index: $i;
+        }
+    }
+}

@@ -44,6 +44,9 @@
                 text-transform: uppercase;
             }
 
+            /*
+                Active JS 
+            */
             .gallery-container {
                 max-width: 475px;
                 max-height: 375px;
@@ -51,11 +54,26 @@
                 border: 1px solid rgba(158, 171, 182, 0.57);
                 background-color: $main-color;
 
+                .gallery-package {
+                    @include size(473px, 266px);
+
+                    position: relative;
+                    overflow: hidden;
+                }
+
                 .images-container {
+                    @include size(100%, 100%);
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
 
                     .image-box {
-                        max-width: 473px;
-                        max-height: 266px;
+                        position: absolute;
+
+                        &_active {
+                            z-index: 99
+                        }
 
                         &:hover>.title-image {
                             opacity: 1;
@@ -63,7 +81,9 @@
                     }
 
                     .big-image {
-                        position: relative;
+                        display: block;
+                        width: 473px;
+                        height: 266px;
                     }
 
                     .title-image {
@@ -71,7 +91,7 @@
 
                         width: 473px;
                         position: absolute;
-                        bottom: 14px;
+                        bottom: 0px;
                         padding: 4px 17px;
                         opacity: 0;
                         transition-duration: 1s;
@@ -83,6 +103,25 @@
 
                         display: block;
                         text-transform: uppercase;
+                    }
+                }
+            }
+
+            /*
+                Disable JS 
+            */
+            .disable-js {
+
+                .images-container {
+                    animation: sliding #{$tot}s infinite;
+
+                    .image-box {
+                        @include posElement();
+                    }
+
+                    .title-image {
+                        opacity: 1;
+                        transition-duration: 0s;
                     }
                 }
             }
@@ -202,7 +241,7 @@
 }
 
 // Tablet
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 992px) {
     .main-wrapper {
 
         .main-content {
