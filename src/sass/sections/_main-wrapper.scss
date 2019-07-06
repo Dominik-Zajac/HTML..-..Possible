@@ -112,16 +112,15 @@
 
                 // Miniatures gallery
                 .gallery-slider {
-                    max-width: 475px;
-                    max-height: 103px;
-                    border: 2px solid $main-color;
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
+                    max-width: 475px;
+                    max-height: 103px;
+                    border: 2px solid $main-color;
                     border-bottom-left-radius: 10px;
                     border-bottom-right-radius: 10px;
                     background: url("../../img/background-slider.png") repeat center;
-
 
                     .slider-miniatures_img {
                         display: flex;
@@ -241,17 +240,53 @@
                 }
 
                 .gallery-container {
+                    max-width: 80vw;
+                    max-height: 147px;
 
+                    // Big image
                     .images-container {
+                        @include size(80vw, 100%);
 
                         .big-image {
-                            max-width: 80vw;
+                            width: 100%;
+                            height: auto;
                         }
 
                         .title-image {
-                            width: 80vw;
+                            width: 100%;
                             opacity: 1;
-                            transition: 0s;
+                        }
+                    }
+
+                    // Miniatures gallery
+                    .gallery-slider {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        max-width: 475px;
+                        max-height: 103px;
+                        border: 2px solid $main-color;
+                        border-bottom-left-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                        background: url("../../img/background-slider.png") repeat center;
+
+                        .slider-miniatures_img {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .miniature-img {
+                                @include size(60px, 60px);
+
+                                margin: 22px 2px;
+                            }
+                        }
+
+                        .arrow-btn {
+                            border: none;
+                            outline: none;
+                            background-color: inherit;
+
+                            .arrow-image {}
                         }
                     }
                 }

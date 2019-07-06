@@ -26,6 +26,6 @@ document.querySelector('.navicon').addEventListener('click', e => {
 });
 
 /* Disable auto slider */
-// window.addEventListener('load', () => {
-//     document.querySelector('.disable-js').classList.remove('disable-js');
-// });
+window.addEventListener('load', () => {
+    document.querySelector('.disable-js').classList.remove('disable-js');
+});
