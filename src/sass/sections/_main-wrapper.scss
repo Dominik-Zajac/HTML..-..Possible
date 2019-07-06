@@ -1,6 +1,4 @@
 .main-wrapper {
-    // display: flex;
-    // justify-content: center;
     height: 80vh;
 
     .main-container {
@@ -11,6 +9,7 @@
         min-width: 515px;
         background-color: $main-color;
 
+        // Main text
         .main-text {
             padding-top: 32px;
             padding-left: 24px;
@@ -28,8 +27,69 @@
                 line-height: 18px;
             }
         }
+
+        // Big image
+        .main-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 6%;
+
+            .gallery-title {
+                @include text($main-font, 15px, 400, $second-color);
+
+                align-self: flex-start;
+                margin-left: 4%;
+                text-transform: uppercase;
+            }
+
+            .gallery-container {
+                max-width: 475px;
+                max-height: 375px;
+                box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.18);
+                border: 1px solid rgba(158, 171, 182, 0.57);
+                background-color: $main-color;
+
+                .images-container {
+
+                    .image-box {
+                        max-width: 473px;
+                        max-height: 266px;
+
+                        &:hover>.title-image {
+                            opacity: 1;
+                        }
+                    }
+
+                    .big-image {
+                        position: relative;
+                    }
+
+                    .title-image {
+                        @include text($main-font, 12px, 700, $main-color);
+
+                        width: 473px;
+                        position: absolute;
+                        bottom: 14px;
+                        padding: 4px 17px;
+                        opacity: 0;
+                        transition-duration: 1s;
+                        background-color: rgba(0, 0, 0, 0.8);
+                    }
+
+                    .subtitle-image {
+                        @include text($paragraph-font, 11px, 400, $main-color);
+
+                        display: block;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
     }
 
+    // Text and map
     .main-sidebar {
         display: flex;
         height: 100%;
@@ -90,6 +150,30 @@
                     padding: 0 15px;
                 }
             }
+
+            .main-gallery {
+
+                .gallery-title {
+                    align-self: center;
+                    margin-left: 0%;
+                }
+
+                .gallery-container {
+
+                    .images-container {
+
+                        .big-image {
+                            max-width: 80vw;
+                        }
+
+                        .title-image {
+                            width: 80vw;
+                            opacity: 1;
+                            transition: 0s;
+                        }
+                    }
+                }
+            }
         }
 
         .main-sidebar {
@@ -109,6 +193,28 @@
                     width: 200px;
                     font-size: 14px;
                     text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .main-wrapper {
+
+        .main-content {
+
+            .main-gallery {
+
+                .gallery-container {
+
+                    .images-container {
+
+                        .title-image {
+                            opacity: 1;
+                            transition: 0s;
+                        }
+                    }
                 }
             }
         }
