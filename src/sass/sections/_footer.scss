@@ -1,0 +1,38 @@
+.footer {
+    @include size(100vw, 33px);
+
+    display: flex;
+    justify-content: center;
+    background-color: $second-color;
+
+    &-nav {
+        @include spacing(0, 0);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 725px;
+    }
+
+    &-element {
+        list-style: none;
+
+        a {
+            @include text($paragraph-font, 13px, 400, $main-color);
+
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+                color: $additional-color;
+            }
+        }
+    }
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+    .footer {
+        display: none;
+    }
+}
