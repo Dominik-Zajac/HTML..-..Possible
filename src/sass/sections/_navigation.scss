@@ -57,7 +57,7 @@
 
 /* Media queries */
 // Mobile
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
 
     //Disable navigation
     nav {
@@ -73,10 +73,10 @@
         max-height: 0;
 
         .navicon {
-            height: 80px;
+            z-index: 99;
             position: relative;
             display: block;
-            z-index: 99;
+            height: 80px;
             transition: linear 0.5s all;
             outline: none;
 
@@ -85,9 +85,9 @@
                 @include size(45px, 3px);
 
                 position: absolute;
+                content: "";
                 margin: 20px 0 0 20px;
                 background: $main-color;
-                content: "";
                 transition: 0.8s ease;
             }
 
