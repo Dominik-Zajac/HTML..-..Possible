@@ -131,6 +131,8 @@
                             @include size(60px, 60px);
 
                             margin: 22px 2px;
+                            cursor: pointer;
+                            opacity: 0.7;
                         }
                     }
 
@@ -161,7 +163,7 @@
                 }
 
                 .gallery-slider {
-                    display: none;
+                    // display: none;
                 }
             }
         }
@@ -244,16 +246,16 @@
                 }
 
                 .gallery-container {
-                    max-width: 80vw;
+                    max-width: 300px;
                     max-height: 550px;
 
                     .gallery-package {
-                        @include size(473px, 147px);
+                        @include size(300px, 147px);
                     }
 
                     // Big image
                     .images-container {
-                        @include size(80vw, 147px);
+                        @include size(300px, 147px);
 
                         .big-image {
                             @include size(100%, 147px);
@@ -267,7 +269,7 @@
 
                     // Miniatures gallery
                     .gallery-slider {
-                        width: 80vw;
+                        width: 300px;
                     }
                 }
             }

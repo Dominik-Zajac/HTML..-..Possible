@@ -29,3 +29,36 @@ document.querySelector('.navicon').addEventListener('click', e => {
 window.addEventListener('load', () => {
     document.querySelector('.disable-js').classList.remove('disable-js');
 });
+
+/* Slider */
+const prevButton = document.querySelector('.prev-btn');
+const nextButton = document.querySelector('.next-btn');
+const imageBox = document.querySelector('.image-box_active');
+const miniatureImages = [...document.querySelectorAll('.miniature-img')];
+
+
+let images = '';
+
+miniatureImages.forEach(image => {
+    image.addEventListener('click', () => {
+        miniatureImages.forEach(image => {
+            image.style.opacity = '0.7'
+            image.style.boxShadow = ''
+        });
+        images = image;
+        image.style.opacity = '1';
+        image.style.boxShadow = '0 0 0 2px #1d9ed9';
+        console.log(miniatureImages);
+    });
+});
+console.log(images);
+
+
+
+prevButton.addEventListener('click', () => {
+    imageBox.classList.add('translate');
+});
+
+nextButton.addEventListener('click', () => {
+
+});
