@@ -35,30 +35,69 @@ const prevButton = document.querySelector('.prev-btn');
 const nextButton = document.querySelector('.next-btn');
 const imageBox = document.querySelector('.image-box_active');
 const miniatureImages = [...document.querySelectorAll('.miniature-img')];
+const listImageArea = document.querySelector('.slider-miniatures_img');
+
+let numberImages = '3';
 
 
-let images = '';
+function changeRight() {
+    if (miniatureImages.length === numberImages) {
+        console.log('No more images ');
+    } else {
+        let selectedImage = document.querySelector('.miniature-img_active');
+        selectedImage.parentElement.nextElementSibling.children[0].classList.add('miniature-img_active');
+        selectedImage.classList.remove('miniature-img_active');
+        selectedImage = listImageArea.querySelector('.miniature-img_active');
 
-miniatureImages.forEach(image => {
-    image.addEventListener('click', () => {
-        miniatureImages.forEach(image => {
-            image.style.opacity = '0.7'
-            image.style.boxShadow = ''
-        });
-        images = image;
-        image.style.opacity = '1';
-        image.style.boxShadow = '0 0 0 2px #1d9ed9';
-        console.log(miniatureImages);
-    });
-});
-console.log(images);
+        prevButton.style.cursor = 'pointer';
+        numberImages++;
+
+        if (miniatureImages.length === numberImages) {
+            nextButton.style.cursor = 'not-allowed';
+        }
+    }
+};
+
+function changeLeft() {
+
+    if (numberImages === 1) {
+        console.log('No more images ');
+    } else {
+        let selectedImage = document.querySelector('.miniature-img_active');
+        selectedImage.parentElement.previousElementSibling.children[0].classList.add('miniature-img_active');
+        selectedImage.classList.remove('miniature-img_active');
+        selectedImage = listImageArea.querySelector('.miniature-img_active');
+
+        nextButton.style.cursor = 'pointer';
+        numberImages--;
+
+        if (numberImages === 1) {
+            prevButton.style.cursor = 'not-allowed';
+        }
+    }
+};
 
 
+nextButton.addEventListener('click', changeRight);
+prevButton.addEventListener('click', changeLeft);
 
-prevButton.addEventListener('click', () => {
-    imageBox.classList.add('translate');
-});
+// miniatureImages.forEach(image => {
+//     image.addEventListener('click', () => {
+//         miniatureImages.forEach(image => {
+//             image.style.opacity = '0.7'
+//             image.style.boxShadow = ''
+//         });
+//         images = image;
+//         image.style.opacity = '1';
+//         image.style.boxShadow = '0 0 0 2px #1d9ed9';
+//         console.log(miniatureImages);
+//     });
+// });
 
-nextButton.addEventListener('click', () => {
+// prevButton.addEventListener('click', () => {
+//     imageBox.classList.add('translate');
+// });
 
-});
+// nextButton.addEventListener('click', () => {
+
+// });

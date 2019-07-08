@@ -133,6 +133,11 @@
                             margin: 22px 2px;
                             cursor: pointer;
                             opacity: 0.7;
+
+                            &_active {
+                                opacity: 1;
+                                box-shadow: 0 0 0 2px #1d9ed9;
+                            }
                         }
                     }
 
