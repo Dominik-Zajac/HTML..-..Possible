@@ -77,27 +77,31 @@ function changeLeft() {
     }
 };
 
-
 nextButton.addEventListener('click', changeRight);
 prevButton.addEventListener('click', changeLeft);
 
-// miniatureImages.forEach(image => {
-//     image.addEventListener('click', () => {
-//         miniatureImages.forEach(image => {
-//             image.style.opacity = '0.7'
-//             image.style.boxShadow = ''
-//         });
-//         images = image;
-//         image.style.opacity = '1';
-//         image.style.boxShadow = '0 0 0 2px #1d9ed9';
-//         console.log(miniatureImages);
-//     });
-// });
+function changeCurrentImage() {
+    numberImages = this.dataset.number_miniature;
 
-// prevButton.addEventListener('click', () => {
-//     imageBox.classList.add('translate');
-// });
+    miniatureImages.forEach(image => {
+        image.classList.remove('miniature-img_active');
+    });
+    this.classList.add('miniature-img_active');
 
-// nextButton.addEventListener('click', () => {
+    if (this === miniatureImages[miniatureImages.length - 1]) {
+        numberImages = miniatureImages.length;
+        nextButton.style.cursor = 'not-allowed';
+        prevButton.style.cursor = 'pointer';
+    } else if (this === miniatureImages[0]) {
+        numberImages = 1;
+        prevButton.style.cursor = 'not-allowed';
+        nextButton.style.cursor = 'pointer';
+    } else {
+        prevButton.style.cursor = 'pointer';
+        nextButton.style.cursor = 'pointer';
+    }
+};
 
-// });
+miniatureImages.forEach(image => {
+    image.addEventListener('click', changeCurrentImage);
+});
