@@ -34,12 +34,13 @@ window.addEventListener('load', () => {
 const prevButton = document.querySelector('.prev-btn');
 const nextButton = document.querySelector('.next-btn');
 const imageBox = document.querySelector('.image-box_active');
+const bigImage = [...document.querySelectorAll('.image-box')];
 const miniatureImages = [...document.querySelectorAll('.miniature-img')];
 const listImageArea = document.querySelector('.slider-miniatures_img');
 
 let numberImages = '3';
 
-
+// Selection of pictures through arrow buttons
 function changeRight() {
     if (miniatureImages.length === numberImages) {
         console.log('No more images ');
@@ -48,6 +49,7 @@ function changeRight() {
         selectedImage.parentElement.nextElementSibling.children[0].classList.add('miniature-img_active');
         selectedImage.classList.remove('miniature-img_active');
         selectedImage = listImageArea.querySelector('.miniature-img_active');
+        changeBigImage(selectedImage);
 
         prevButton.style.cursor = 'pointer';
         numberImages++;
@@ -67,6 +69,7 @@ function changeLeft() {
         selectedImage.parentElement.previousElementSibling.children[0].classList.add('miniature-img_active');
         selectedImage.classList.remove('miniature-img_active');
         selectedImage = listImageArea.querySelector('.miniature-img_active');
+        changeBigImage(selectedImage);
 
         nextButton.style.cursor = 'pointer';
         numberImages--;
@@ -80,6 +83,7 @@ function changeLeft() {
 nextButton.addEventListener('click', changeRight);
 prevButton.addEventListener('click', changeLeft);
 
+// Selection of pictures through miniatures
 function changeCurrentImage() {
     numberImages = this.dataset.number_miniature;
 
@@ -105,3 +109,17 @@ function changeCurrentImage() {
 miniatureImages.forEach(image => {
     image.addEventListener('click', changeCurrentImage);
 });
+
+// Select big image
+function changeBigImage(image) {
+    bigImage.forEach(photo => {
+        photo.classList.remove('image-box_active');
+        if (photo.dataset.big_image === image.dataset.number_miniature) {
+            photo.classList.add('image-box_active');
+        }
+    });
+};
+
+miniatureImages.forEach(image => {
+    image.addEventListener('click', () => changeBigImage(image));
+})
